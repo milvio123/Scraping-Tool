@@ -7,7 +7,8 @@ import urllib.request
 import wget
 
 #get project id
-urluser = "https://gitlab.com/wireshark/wireshark"
+print("Enter the link")
+urluser = input()
 page_content = requests.get(urluser).content
 soup_page = soup(page_content, 'html.parser')
 for id in soup_page.findAll('div', {"id": "js-tree-ref-switcher"}):
@@ -16,7 +17,6 @@ print(projectid)
 
 
 #get total number of pages
-urluser = "https://gitlab.com/wireshark/wireshark"
 urlchangedapi = "https://gitlab.com/api/v4/projects/" + projectid + "/repository/tags/?per_page=20&page=1"
 data = requests.get(urlchangedapi)
 totalpages = data.headers["X-Total-Pages"]
