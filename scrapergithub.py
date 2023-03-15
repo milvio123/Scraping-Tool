@@ -61,9 +61,9 @@ while len(contenttext)!=0:
     for text in texts:
         contenttext.append(text.get_text())
         newlink = urluser +"?after="  + contenttext[len(contenttext)-1]
-print(zip_links_list_url)
-# for i in zip_links_list_url:
-#     wget.download(i)
+# print(zip_links_list_url)
+for i in zip_links_list_url:
+    wget.download(i)
 
 
 
